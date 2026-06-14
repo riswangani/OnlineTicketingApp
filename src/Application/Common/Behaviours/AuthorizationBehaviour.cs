@@ -5,9 +5,11 @@ using OnlineTicketingApp.Application.Common.Security;
 
 namespace OnlineTicketingApp.Application.Common.Behaviours;
 
-public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
+public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull
 {
+
+    // testing bro
     private readonly IUser _user;
     private readonly IIdentityService _identityService;
 
@@ -42,7 +44,7 @@ public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRe
                 {
                     foreach (var role in roles)
                     {
-                        var isInRole = _user.Roles?.Any(x => role == x)??false;
+                        var isInRole = _user.Roles?.Any(x => role == x) ?? false;
                         if (isInRole)
                         {
                             authorized = true;
